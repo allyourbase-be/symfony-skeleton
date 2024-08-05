@@ -1,6 +1,6 @@
 FROM php:8.3-fpm-alpine AS app_php
 RUN docker-php-ext-install -j$(nproc) opcache
-RUN apk add --no-cache git
+RUN apk add --no-cache git yarn
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 WORKDIR /app
 CMD ["php-fpm"]
