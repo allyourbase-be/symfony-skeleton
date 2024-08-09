@@ -1,4 +1,8 @@
-:80 {
+http://localhost {
+    redir https://localhost{uri} 301
+}
+
+https://localhost {
     root * /app/public
     file_server
     php_fastcgi php:9000

@@ -1,6 +1,6 @@
 .idea/
-node_modules/
 docker/postgres/data/
+node_modules/
 
 ###> symfony/framework-bundle ###
 /.env.local

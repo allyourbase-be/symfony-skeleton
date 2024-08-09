@@ -1,7 +1,8 @@
 FROM php:8.3-fpm-alpine AS app_php
-RUN docker-php-ext-install -j$(nproc) opcache
-RUN apk add --no-cache git yarn
+RUN apk add --no-cache git openssh postgresql-dev rsync yarn
+RUN docker-php-ext-install -j$(nproc) opcache pdo_pgsql
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+COPY --from=ghcr.io/phpstan/phpstan:latest /composer/vendor/phpstan/phpstan/phpstan.phar /usr/local/bin/phpstan
 WORKDIR /app
 CMD ["php-fpm"]
 ENTRYPOINT ["./docker/php/entrypoint.sh"]
