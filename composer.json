@@ -1,6 +1,7 @@
 {
+    "name": "allyourbase/symfony-skeleton",
     "type": "project",
-    "license": "proprietary",
+    "license": "mit",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
